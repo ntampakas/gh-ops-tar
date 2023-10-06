@@ -13,7 +13,7 @@ jobs:
         run: echo "Skip"
 
   main:
-    runs-on: ["${{github.job}}", self-hosted, t3.large]
+    runs-on: ["${{github.run_id}}", self-hosted, t3.large]
     steps:
       - name: sayhi
         run: echo "Hello World!"
