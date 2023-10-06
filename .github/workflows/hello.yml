@@ -7,8 +7,8 @@ concurrency:
 
 jobs:
   my-job:
-    runs-on: ubuntu-latest
-    #runs-on: ["${{github.run_id}}", self-hosted, "${{needs.set-outputs.outputs.instancetype}}"]
+    #runs-on: ubuntu-latest
+    runs-on: ["${{github.run_id}}", "${{github.job}}", self-hosted, "${{needs.set-outputs.outputs.instancetype}}"]
     steps:
       - name: sayhi
         run: echo "Hello World!"
