@@ -1,0 +1,18 @@
+name: hello-world
+on: push
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  my-job:
+    runs-on: ubuntu-latest
+    #runs-on: ["${{github.run_id}}", self-hosted, "${{needs.set-outputs.outputs.instancetype}}"]
+    steps:
+      - name: sayhi
+        run: echo "Hello World!"
+      - name: print
+        run: echo ${{ job.container.id }}
+      - name: sleep
+        run: sleep 60
