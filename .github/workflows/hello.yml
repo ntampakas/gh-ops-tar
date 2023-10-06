@@ -13,6 +13,6 @@ jobs:
       - name: sayhi
         run: echo "Hello World!"
       - name: print
-        run: echo ${{ job.container.id }}
+        run: echo ${{ job.my-jobs.id }}
       - name: sleep
         run: sleep 60
