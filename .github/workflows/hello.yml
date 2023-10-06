@@ -6,8 +6,13 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  my-job:
-    #runs-on: ubuntu-latest
+  skip:
+    runs-on: ubuntu-latest
+    steps:
+      - name: skip
+        run: echo "Skip"
+
+  main:
     runs-on: ["${{github.run_id}}", "${{github.job}}", self-hosted, t3.large]
     steps:
       - name: sayhi
